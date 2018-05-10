@@ -11,7 +11,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemRollingPin extends Item {
 	public ItemRollingPin() {
-        setRegistryName("item_rolling_pin");
+        setRegistryName("rolling_pin");
         setUnlocalizedName(ClayForBalance.MODID + ".item_rolling_pin");
         setCreativeTab(CreativeTabs.TOOLS);
 	}

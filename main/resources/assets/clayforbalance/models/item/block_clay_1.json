@@ -1,9 +1,9 @@
 {
   "parent": "block/cube",
   "textures": {
-    "down": "clayforbalance:blocks/workbenchtop",
+    "down": "clayforbalance:blocks/workbenchside",
     "up": "clayforbalance:blocks/workbenchtop",
-    "north": "clayforbalance:blocks/workbenchfront",
+    "north": "clayforbalance:blocks/workbenchside",
     "east": "clayforbalance:blocks/workbenchside",
     "south": "clayforbalance:blocks/workbenchside",
     "west": "clayforbalance:blocks/workbenchside"

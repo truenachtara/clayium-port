@@ -10,7 +10,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemKnife extends Item {
 	public ItemKnife() {
-        setRegistryName("item_knife");
+        setRegistryName("knife");
         setUnlocalizedName(ClayForBalance.MODID + ".item_knife");
 	}
 	

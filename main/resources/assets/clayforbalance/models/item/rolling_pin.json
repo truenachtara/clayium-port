@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "clayforbalance:items/itemrollingpin"
+        "layer0": "clayforbalance:items/rollingpin"
      },
      
     "display": {

@@ -4,8 +4,9 @@ import java.io.File;
 
 import com.nachie.ClayForBalance.Config;
 import com.nachie.ClayForBalance.items.*;
-import com.nachie.ClayForBalance.blocks.BlockClay1;
 import com.nachie.ClayForBalance.blocks.ModBlocks;
+import com.nachie.ClayForBalance.blocks.workbench.*;
+import com.nachie.ClayForBalance.blocks.*;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -20,6 +21,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod.EventBusSubscriber
 public class CommonProxy {
@@ -48,6 +50,7 @@ public class CommonProxy {
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
     	event.getRegistry().register(new BlockClay1());
+    	GameRegistry.registerTileEntity(ClayWorkbench.class, "clayforbalance_clayworkbench");
     }
 
     @SubscribeEvent

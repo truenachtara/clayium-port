@@ -10,7 +10,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemSlicer extends Item{
 	public ItemSlicer() {
-        setRegistryName("item_slicer");
+        setRegistryName("slicer");
         setUnlocalizedName(ClayForBalance.MODID + ".item_slicer");
 	}
 	

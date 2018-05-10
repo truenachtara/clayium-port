@@ -12,14 +12,14 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @ObjectHolder("clayforbalance")
 public class ModItems {
-	public static final ItemKnife ITEM_KNIFE = null;
-	public static final ItemRollingPin ITEM_ROLLING_PIN = null;
-	public static final ItemSlicer ITEM_SLICER = null;
+	public static final ItemKnife KNIFE = null;
+	public static final ItemRollingPin ROLLING_PIN = null;
+	public static final ItemSlicer SLICER = null;
 
 	@SideOnly(Side.CLIENT)
 	public static void initClient() {
-		ITEM_KNIFE.initModel();
-		ITEM_ROLLING_PIN.initModel();
-		ITEM_SLICER.initModel();
+		KNIFE.initModel();
+		ROLLING_PIN.initModel();
+		SLICER.initModel();
 	}
 }

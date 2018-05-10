@@ -1,5 +1,7 @@
 package com.nachie.ClayForBalance.blocks;
 
+import com.nachie.ClayForBalance.blocks.workbench.BlockClay1;
+
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
