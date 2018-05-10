@@ -27,14 +27,14 @@ import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockClay1 extends Block implements ITileEntityProvider{
+public class ClayWorktable extends Block implements ITileEntityProvider{
 
-	public BlockClay1() {
+	public ClayWorktable() {
         super(Material.CLAY);
         setHardness(1.0f);
         setResistance(5.0f);
-        setUnlocalizedName(ClayForBalance.MODID + ".clay_1");
-        setRegistryName("block_clay_1");
+        setUnlocalizedName(ClayForBalance.MODID + ".clayworktable");
+        setRegistryName("clayworktable");
     }
 	
 	@SideOnly(Side.CLIENT)

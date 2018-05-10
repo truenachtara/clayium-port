@@ -1,0 +1,21 @@
+{
+  "result": {
+    "item": "clayforbalance:slicer"
+  },
+  "pattern": [
+    "  S",
+    " T ",
+    "S  "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "S": {
+      "type": "forge:ore_dict",
+      "ore": "stickWood"
+    },
+    "T": {
+      "type": "forge:ore_dict",
+      "ore": "string"
+    }
+  }
+}

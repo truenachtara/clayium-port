@@ -1,4 +1,26 @@
 item.clayforbalance.item_knife.name=Clay Knife
 item.clayforbalance.item_rolling_pin.name=Rolling Pin
 item.clayforbalance.item_slicer.name=Clay Slicer
-tile.clayforbalance.clay_1.name=Magic Block
+
+item.clayforbalance.clayplate.name=Clay Plate
+item.clayforbalance.claystick.name=Clay Stick
+item.clayforbalance.shortclaystick.name=Short Clay Stick
+item.clayforbalance.clayring.name=Clay Ring
+item.clayforbalance.smallclayring.name=Small Clay Ring
+item.clayforbalance.claygear.name=Clay Gear
+item.clayforbalance.clayblade.name=Clay Blade
+item.clayforbalance.clayneedle.name=Clay Needle
+item.clayforbalance.claydisc.name=Clay Disc
+item.clayforbalance.smallclaydisc.name=Small Clay Disc
+item.clayforbalance.claycylinder.name=Clay Cylinder
+item.clayforbalance.claypipe.name=Clay Pipe
+item.clayforbalance.largeclayball.name=Large Clay Ball
+item.clayforbalance.largeclayplate.name=Large Clay Plate
+item.clayforbalance.claygrindinghead.name=Clay Grinding Head
+item.clayforbalance.claybearing.name=Clay Bearing
+item.clayforbalance.clayspindle.name=Clay Spindle
+item.clayforbalance.claycuttinghead.name=Clay Cutting Head
+item.clayforbalance.claywheel.name=Clay Wheel
+
+
+tile.clayforbalance.clayworktable.name=Clay Worktable

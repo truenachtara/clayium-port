@@ -49,17 +49,38 @@ public class CommonProxy {
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
-    	event.getRegistry().register(new BlockClay1());
+    	event.getRegistry().register(new ClayWorktable());
     	GameRegistry.registerTileEntity(ClayWorkbench.class, "clayforbalance_clayworkbench");
     }
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
     	
-    	event.getRegistry().register(new ItemBlock(ModBlocks.BLOCK_CLAY_1).setRegistryName(ModBlocks.BLOCK_CLAY_1.getRegistryName()));
-        event.getRegistry().register(new ItemKnife());
+    	event.getRegistry().register(new ItemBlock(ModBlocks.CLAYWORKTABLE).setRegistryName(ModBlocks.CLAYWORKTABLE.getRegistryName()));
+        //register tools
+    	event.getRegistry().register(new ItemKnife());
         event.getRegistry().register(new ItemRollingPin());
         event.getRegistry().register(new ItemSlicer());
+        
+        //register tier 1
+        event.getRegistry().register(new ItemClayBearing());
+        event.getRegistry().register(new ItemClayBlade());
+        event.getRegistry().register(new ItemClayCuttingHead());
+        event.getRegistry().register(new ItemClayCylinder());
+        event.getRegistry().register(new ItemClayDisc());
+        event.getRegistry().register(new ItemClayGear());
+        event.getRegistry().register(new ItemClayGrindingHead());
+        event.getRegistry().register(new ItemClayPipe());
+        event.getRegistry().register(new ItemClayPlate());
+        event.getRegistry().register(new ItemClayRing());
+        event.getRegistry().register(new ItemClaySpindle());
+        event.getRegistry().register(new ItemClayStick());
+        event.getRegistry().register(new ItemClayWheel());
+        event.getRegistry().register(new ItemLargeClayBall());
+        event.getRegistry().register(new ItemLargeClayPlate());
+        event.getRegistry().register(new ItemShortClayStick());
+        event.getRegistry().register(new ItemSmallClayDisc());
+        event.getRegistry().register(new ItemSmallClayRing());
         
     }
     

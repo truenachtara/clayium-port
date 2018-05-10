@@ -1,0 +1,21 @@
+{
+  "result": {
+    "item": "clayforbalance:rolling_pin"
+  },
+  "pattern": [
+    "  S",
+    " W ",
+    "S  "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "S": {
+      "type": "forge:ore_dict",
+      "ore": "stickWood"
+    },
+    "W": {
+      "type": "forge:ore_dict",
+      "ore": "plankWood"
+    }
+  }
+}

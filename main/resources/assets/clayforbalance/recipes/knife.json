@@ -1,0 +1,25 @@
+{
+  "result": {
+    "item": "clayforbalance:knife"
+  },
+  "pattern": [
+    "N  ",
+    " I ",
+    "  W"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "N": {
+      "type": "forge:ore_dict",
+      "ore": "nuggetIron"
+    },
+    "W": {
+      "type": "forge:ore_dict",
+      "ore": "plankWood"
+    },
+    "I": {
+      "type": "forge:ore_dict",
+      "ore": "ingotIron"
+    }
+  }
+}

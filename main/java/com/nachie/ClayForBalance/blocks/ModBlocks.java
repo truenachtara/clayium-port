@@ -1,6 +1,6 @@
 package com.nachie.ClayForBalance.blocks;
 
-import com.nachie.ClayForBalance.blocks.workbench.BlockClay1;
+import com.nachie.ClayForBalance.blocks.workbench.ClayWorktable;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -11,10 +11,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @ObjectHolder("clayforbalance")
 public final class ModBlocks {
 	
-	public static final BlockClay1 BLOCK_CLAY_1 = null;
+	public static final ClayWorktable CLAYWORKTABLE = null;
 	
 	@SideOnly(Side.CLIENT)
 	public static void initClient() {
-		BLOCK_CLAY_1.initModel();
+		CLAYWORKTABLE.initModel();
 	}
 }
