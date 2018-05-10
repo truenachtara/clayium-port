@@ -22,7 +22,6 @@ public class ClayForBalance
     
     @Mod.Instance
     public static ClayForBalance instance;
-    
     public static Logger logger;
 
     @EventHandler
