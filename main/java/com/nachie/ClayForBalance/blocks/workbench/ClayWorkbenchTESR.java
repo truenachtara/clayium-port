@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -70,17 +71,31 @@ public class ClayWorkbenchTESR extends TileEntitySpecialRenderer<ClayWorkbenchTE
 
     private void renderItem(ClayWorkbenchTE te) {
         ItemStack stack = te.getStack();
-        if (!stack.isEmpty()) {
-            RenderHelper.enableStandardItemLighting();
-            GlStateManager.enableLighting();
-            GlStateManager.pushMatrix();
-            // Translate to the center of the block and .9 points higher
-            GlStateManager.translate(.5, .9, .5);
-            GlStateManager.scale(.4f, .4f, .4f);
-
-            Minecraft.getMinecraft().getRenderItem().renderItem(stack, ItemCameraTransforms.TransformType.NONE);
-
-            GlStateManager.popMatrix();
+        if (!stack.isEmpty()){
+	        if (!(stack.getItem() instanceof ItemBlock)) {
+	            RenderHelper.enableStandardItemLighting();
+	            GlStateManager.enableLighting();
+	            GlStateManager.pushMatrix();
+	            // Translate to the center of the block and .9 points higher
+	            GlStateManager.translate(.5, .968, .5);
+	            GlStateManager.scale(.7f, .7f, .7f);
+	            GlStateManager.rotate(-90.0f, 1.0f, 0.0f, 0.0f);
+	
+	            Minecraft.getMinecraft().getRenderItem().renderItem(stack, ItemCameraTransforms.TransformType.NONE);
+	
+	            GlStateManager.popMatrix();
+	        } else {
+	        	RenderHelper.enableStandardItemLighting();
+	            GlStateManager.enableLighting();
+	            GlStateManager.pushMatrix();
+	            // Translate to the center of the block and .9 points higher
+	            GlStateManager.translate(.5, 1.188, .5);
+	            GlStateManager.scale(.5f, .5f, .5f);
+	
+	            Minecraft.getMinecraft().getRenderItem().renderItem(stack, ItemCameraTransforms.TransformType.NONE);
+	
+	            GlStateManager.popMatrix();
+	        }
         }
     }
 

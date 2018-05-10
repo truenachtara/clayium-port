@@ -18,6 +18,10 @@ public class ClayWorkbenchTE extends TileEntity {
     public void setStack(ItemStack stack) {
         this.stack = stack;
         markDirty();
+        if (getWorld() != null) {
+            IBlockState state = getWorld().getBlockState(getPos());
+            getWorld().notifyBlockUpdate(getPos(), state, state, 3);
+        }
     }
 
     @Override
