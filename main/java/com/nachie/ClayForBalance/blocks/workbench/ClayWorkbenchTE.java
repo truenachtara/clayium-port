@@ -8,7 +8,7 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
-public class ClayWorkbench extends TileEntity {
+public class ClayWorkbenchTE extends TileEntity {
 	private ItemStack stack = ItemStack.EMPTY;
 
     public ItemStack getStack() {

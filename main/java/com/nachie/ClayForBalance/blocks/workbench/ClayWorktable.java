@@ -40,15 +40,16 @@ public class ClayWorktable extends Block implements ITileEntityProvider{
 	@SideOnly(Side.CLIENT)
     public void initModel() {
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(getRegistryName(), "inventory"));
-    }
+        ClientRegistry.bindTileEntitySpecialRenderer(ClayWorkbenchTE.class, new ClayWorkbenchTESR(15 / 16f, 1f + 0.001f, 1 / 16f, 15 / 16f));
+	}
 	
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		return new ClayWorkbench();
+		return new ClayWorkbenchTE();
 	}
 	
-	private ClayWorkbench getTE(IBlockAccess world, BlockPos pos) {
-        return (ClayWorkbench) world.getTileEntity(pos);
+	private ClayWorkbenchTE getTE(IBlockAccess world, BlockPos pos) {
+        return (ClayWorkbenchTE) world.getTileEntity(pos);
     }
 	
 	@Override
@@ -76,7 +77,7 @@ public class ClayWorktable extends Block implements ITileEntityProvider{
             EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
 						
 		if(!world.isRemote) {
-			ClayWorkbench te = getTE(world, pos);
+			ClayWorkbenchTE te = getTE(world, pos);
 			
 			HandTableOutcome whatComesOut = HandTableRecipes.IterateHandTableRecipes(te.getStack(),player.getHeldItem(hand));
 			

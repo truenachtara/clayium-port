@@ -50,7 +50,7 @@ public class CommonProxy {
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
     	event.getRegistry().register(new ClayWorktable());
-    	GameRegistry.registerTileEntity(ClayWorkbench.class, "clayforbalance_clayworkbench");
+    	GameRegistry.registerTileEntity(ClayWorkbenchTE.class, "clayforbalance_clayworkbench");
     }
 
     @SubscribeEvent
