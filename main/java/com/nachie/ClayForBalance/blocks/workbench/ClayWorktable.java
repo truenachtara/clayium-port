@@ -40,7 +40,7 @@ public class ClayWorktable extends Block implements ITileEntityProvider{
 	@SideOnly(Side.CLIENT)
     public void initModel() {
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(getRegistryName(), "inventory"));
-        ClientRegistry.bindTileEntitySpecialRenderer(ClayWorkbenchTE.class, new ClayWorkbenchTESR(15 / 16f, 1f + 0.001f, 1 / 16f, 15 / 16f));
+        ClientRegistry.bindTileEntitySpecialRenderer(ClayWorkbenchTE.class, new ClayWorkbenchTESR());
 	}
 	
 	@Override

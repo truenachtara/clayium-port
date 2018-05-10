@@ -1,73 +1,87 @@
 package com.nachie.ClayForBalance.blocks.workbench;
 
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL14;
+import com.nachie.ClayForBalance.blocks.ModBlocks;
 
-import com.nachie.ClayForBalance.library.client.RenderUtil;
-
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockPane;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
-import net.minecraft.client.renderer.block.model.IBakedModel;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class ClayWorkbenchTESR<T extends ClayWorkbenchTE> extends TileEntitySpecialRenderer<T> {
+public class ClayWorkbenchTESR extends TileEntitySpecialRenderer<ClayWorkbenchTE> {
 
-	protected final float yMin;
-	protected final float yMax;
-	protected final float xzMin;
-	protected final float xzMax;
-
-    protected float yScale;
-	protected float xzScale;
-	protected float yOffset;
-	protected float xzOffset;
-	
-	public ClayWorkbenchTESR(float yMin, float yMax, float xzMin, float xzMax) {
-	    float s = 0.9995f;
-	    this.yMin = yMin * s;
-	    this.yMax = yMax * s;
-	    this.xzMin = xzMin * s;
-	    this.xzMax = xzMax * s;
-
-	    this.yOffset = yMin + (yMax - yMin) / 2f;
-	    this.xzOffset = xzMin + (xzMax - xzMin) / 2f;
-
-	    this.xzScale = (this.xzMax - this.xzMin);
-	    this.yScale = xzScale;
-	}
-	
     @Override
     public void render(ClayWorkbenchTE te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
-    	ItemStack stack = te.getStack();
-    	if(te.getStack().isEmpty()) {
-          RenderUtil.pre(x, y, z);
-          int brightness = te.getWorld().getCombinedLight(te.getPos(), 0);
-          OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, brightness % 0x10000 / 1f,
-                                                brightness / 0x10000 / 1f);
+        GlStateManager.pushAttrib();
+        GlStateManager.pushMatrix();
 
-          GlStateManager.translate(xzOffset, yOffset, xzOffset);
-          GlStateManager.scale(xzScale, yScale, xzScale);
+        // Translate to the location of our tile entity
+        GlStateManager.translate(x, y, z);
+        GlStateManager.disableRescaleNormal();
 
-          GlStateManager.blendFunc(GL11.GL_CONSTANT_ALPHA, GL11.GL_ONE_MINUS_CONSTANT_ALPHA);
+        // Render the rotating handles
+        //renderHandles(te);
 
-          GL11.glDepthMask(false);
-          IBakedModel model = Minecraft.getMinecraft().getRenderItem().getItemModelWithOverrides(stack, te.getWorld(), null);
-          Minecraft.getMinecraft().getRenderItem().renderItem(stack, model);
-          GL11.glDepthMask(true);
-          GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-    RenderUtil.post();
+        // Render our item
+        renderItem(te);
+
+        GlStateManager.popMatrix();
+        GlStateManager.popAttrib();
     }
-    
-    
+
+    /*private void renderHandles(ClayWorkbenchTE te) {
+        GlStateManager.pushMatrix();
+
+        GlStateManager.translate(.5, 0, .5);
+        long angle = (System.currentTimeMillis() / 10) % 360;
+        GlStateManager.rotate(angle, 0, 1, 0);
+
+        RenderHelper.disableStandardItemLighting();
+        this.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
+        if (Minecraft.isAmbientOcclusionEnabled()) {
+            GlStateManager.shadeModel(GL11.GL_SMOOTH);
+        } else {
+            GlStateManager.shadeModel(GL11.GL_FLAT);
+        }
+
+        World world = te.getWorld();
+        // Translate back to local view coordinates so that we can do the acual rendering here
+        GlStateManager.translate(-te.getPos().getX(), -te.getPos().getY(), -te.getPos().getZ());
+
+        Tessellator tessellator = Tessellator.getInstance();
+        BufferBuilder bufferBuilder = tessellator.getBuffer();
+        bufferBuilder.begin(GL11.GL_QUADS, DefaultVertexFormats.BLOCK);
+
+        IBlockState state = ModBlocks.pedestalBlock.getDefaultState().withProperty(PedestalBlock.IS_HANDLES, true);
+        BlockRendererDispatcher dispatcher = Minecraft.getMinecraft().getBlockRendererDispatcher();
+        IBakedModel model = dispatcher.getModelForState(state);
+        dispatcher.getBlockModelRenderer().renderModel(world, model, state, te.getPos(), bufferBuilder, true);
+        tessellator.draw();
+
+        RenderHelper.enableStandardItemLighting();
+        GlStateManager.popMatrix();
+    }*/
+
+    private void renderItem(ClayWorkbenchTE te) {
+        ItemStack stack = te.getStack();
+        if (!stack.isEmpty()) {
+            RenderHelper.enableStandardItemLighting();
+            GlStateManager.enableLighting();
+            GlStateManager.pushMatrix();
+            // Translate to the center of the block and .9 points higher
+            GlStateManager.translate(.5, .9, .5);
+            GlStateManager.scale(.4f, .4f, .4f);
+
+            Minecraft.getMinecraft().getRenderItem().renderItem(stack, ItemCameraTransforms.TransformType.NONE);
+
+            GlStateManager.popMatrix();
+        }
     }
+
 }
