@@ -25,6 +25,7 @@ public class ModItems {
 	public static final ItemClayDisc CLAYDISC = null;
 	public static final ItemClayGear CLAYGEAR = null;
 	public static final ItemClayGrindingHead CLAYGRINDINGHEAD = null;
+	public static final ItemClayNeedle CLAYNEEDLE = null;
 	public static final ItemClayPipe CLAYPIPE = null;
 	public static final ItemClayPlate CLAYPLATE = null;
 	public static final ItemClayRing CLAYRING = null;

@@ -36,39 +36,6 @@ public class ClayWorkbenchTESR extends TileEntitySpecialRenderer<ClayWorkbenchTE
         GlStateManager.popAttrib();
     }
 
-    /*private void renderHandles(ClayWorkbenchTE te) {
-        GlStateManager.pushMatrix();
-
-        GlStateManager.translate(.5, 0, .5);
-        long angle = (System.currentTimeMillis() / 10) % 360;
-        GlStateManager.rotate(angle, 0, 1, 0);
-
-        RenderHelper.disableStandardItemLighting();
-        this.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
-        if (Minecraft.isAmbientOcclusionEnabled()) {
-            GlStateManager.shadeModel(GL11.GL_SMOOTH);
-        } else {
-            GlStateManager.shadeModel(GL11.GL_FLAT);
-        }
-
-        World world = te.getWorld();
-        // Translate back to local view coordinates so that we can do the acual rendering here
-        GlStateManager.translate(-te.getPos().getX(), -te.getPos().getY(), -te.getPos().getZ());
-
-        Tessellator tessellator = Tessellator.getInstance();
-        BufferBuilder bufferBuilder = tessellator.getBuffer();
-        bufferBuilder.begin(GL11.GL_QUADS, DefaultVertexFormats.BLOCK);
-
-        IBlockState state = ModBlocks.pedestalBlock.getDefaultState().withProperty(PedestalBlock.IS_HANDLES, true);
-        BlockRendererDispatcher dispatcher = Minecraft.getMinecraft().getBlockRendererDispatcher();
-        IBakedModel model = dispatcher.getModelForState(state);
-        dispatcher.getBlockModelRenderer().renderModel(world, model, state, te.getPos(), bufferBuilder, true);
-        tessellator.draw();
-
-        RenderHelper.enableStandardItemLighting();
-        GlStateManager.popMatrix();
-    }*/
-
     private void renderItem(ClayWorkbenchTE te) {
         ItemStack stack = te.getStack();
         if (!stack.isEmpty()){

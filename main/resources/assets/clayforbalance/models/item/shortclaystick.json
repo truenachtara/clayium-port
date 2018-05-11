@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "clayforbalance:items/clayring"
+        "layer0": "clayforbalance:items/shortclaystick"
      },
      
     "display": {

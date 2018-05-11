@@ -93,9 +93,15 @@ public class ClayWorktable extends Block implements ITileEntityProvider{
 					EntityItem SecondaryOutput = new EntityItem(world, pos.getX(), pos.getY()+1, pos.getZ(), whatComesOut.getSecondaryOutput());
 	                world.spawnEntity(SecondaryOutput);
 				}
-				ItemStack within = te.getStack();
-				within.shrink(1);
-				te.setStack(within);
+				if(whatComesOut.getPrimaryOutput().getItem() == ModItems.LARGECLAYBALL) {
+					ItemStack within = te.getStack();
+					within.shrink(6);
+					te.setStack(within);
+				} else {
+					ItemStack within = te.getStack();
+					within.shrink(1);
+					te.setStack(within);
+				}
 			} 
 			else if(te.getStack().isEmpty()) 
 			{

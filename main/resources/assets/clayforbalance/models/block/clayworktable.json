@@ -1,7 +1,7 @@
 {
 	"credit": "Made with Blockbench by Mato",
 	"textures": {
-		"0": "blocks/clayworktable"
+		"0": "clayforbalance:blocks/clayworktable"
 	},
 	"elements": [
 		{
