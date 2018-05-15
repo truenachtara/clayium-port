@@ -45,7 +45,7 @@ public class ClayBendingMachineContainer extends Container {
 
     private void addOwnSlots() {
         IItemHandler inputHandler = this.te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.UP);
-        IItemHandler energyHandler = this.te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
+        IItemHandler energyHandler = this.te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.WEST);
         IItemHandler outputHandler = this.te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.DOWN);
 
         // Add our own slots
@@ -60,7 +60,7 @@ public class ClayBendingMachineContainer extends Container {
     @Nullable
     @Override
     public ItemStack transferStackInSlot(EntityPlayer playerIn, int index) {
-        ItemStack itemstack = null;
+        ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = this.inventorySlots.get(index);
 
         if (slot != null && slot.getHasStack()) {
@@ -69,10 +69,10 @@ public class ClayBendingMachineContainer extends Container {
 
             if (index < ClayBendingMachineTileEntity.SIZE) {
                 if (!this.mergeItemStack(itemstack1, ClayBendingMachineTileEntity.SIZE, this.inventorySlots.size(), true)) {
-                    return null;
+                    return ItemStack.EMPTY;
                 }
             } else if (!this.mergeItemStack(itemstack1, 0, ClayBendingMachineTileEntity.SIZE, false)) {
-                return null;
+                return ItemStack.EMPTY;
             }
 
             if (itemstack1.isEmpty()) {

@@ -1,9 +1,9 @@
 {
 	"credit": "Made with Blockbench by Mato",
 	"textures": {
-		"0": "blocks/clayhull",
-		"1": "blocks/hullhole",
-		"particle": "blocks/clayhull"
+		"0": "clayforbalance:blocks/clayhull",
+		"1": "clayforbalance:blocks/hullhole",
+		"particle": "clayforbalance:blocks/clayhull"
 	},
 	"elements": [
 		{

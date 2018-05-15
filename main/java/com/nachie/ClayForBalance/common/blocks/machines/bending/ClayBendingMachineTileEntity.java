@@ -84,9 +84,9 @@ public class ClayBendingMachineTileEntity extends TileEntity {
 	    }
 
 	    @Override
-	    public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
-	        if (facing != null && capability == net.minecraftforge.items.CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
-	        	if (facing == EnumFacing.UP) {
+		public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
+			if (facing != null && capability == net.minecraftforge.items.CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+				if (facing == EnumFacing.UP) {
 					return CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.cast(inputStackHandler);
 				}
 				else if (facing == EnumFacing.DOWN) {
@@ -94,9 +94,9 @@ public class ClayBendingMachineTileEntity extends TileEntity {
 				}
 				else
 					return CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.cast(energyStackHandler);
-	        }
-	        return super.getCapability(capability, facing);
-	    }
+			}
+			return super.getCapability(capability, facing);
+		}
 
 	    /*
 		@Override
