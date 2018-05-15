@@ -1,8 +1,8 @@
 package com.nachie.ClayForBalance.proxy;
 
 import com.nachie.ClayForBalance.ClayForBalance;
-import com.nachie.ClayForBalance.blocks.ModBlocks;
-import com.nachie.ClayForBalance.items.ModItems;
+import com.nachie.ClayForBalance.common.blocks.ModBlocks;
+import com.nachie.ClayForBalance.common.items.ModItems;
 
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.obj.OBJLoader;

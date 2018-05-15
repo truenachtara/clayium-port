@@ -2,11 +2,13 @@ package com.nachie.ClayForBalance.proxy;
 
 import java.io.File;
 
+import com.nachie.ClayForBalance.ClayForBalance;
 import com.nachie.ClayForBalance.Config;
-import com.nachie.ClayForBalance.items.*;
-import com.nachie.ClayForBalance.blocks.ModBlocks;
-import com.nachie.ClayForBalance.blocks.workbench.*;
-import com.nachie.ClayForBalance.blocks.*;
+import com.nachie.ClayForBalance.common.blocks.*;
+import com.nachie.ClayForBalance.common.blocks.machines.bending.ClayBendingMachine;
+import com.nachie.ClayForBalance.common.blocks.machines.bending.ClayBendingMachineTileEntity;
+import com.nachie.ClayForBalance.common.blocks.workbench.*;
+import com.nachie.ClayForBalance.common.items.*;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -17,14 +19,19 @@ import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.RegistryEvent.Register;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod.EventBusSubscriber
 public class CommonProxy {
+	
+	@Instance("clayforbalance")
+	public static ClayForBalance instance;
 	
 	public static Configuration config;
 	
@@ -39,6 +46,7 @@ public class CommonProxy {
     }
 
     public void init(FMLInitializationEvent e) {
+    	NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiProxy());
     }
 
     public void postInit(FMLPostInitializationEvent e) {
@@ -51,12 +59,18 @@ public class CommonProxy {
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
     	event.getRegistry().register(new ClayWorktable());
     	GameRegistry.registerTileEntity(ClayWorkbenchTE.class, "clayforbalance_clayworkbench");
+    	
+    	event.getRegistry().register(new ClayBendingMachine());
+        GameRegistry.registerTileEntity(ClayBendingMachineTileEntity.class, "clayforbalance_claybendingmachine");
     }
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
     	
+    	//register ItemBlocks
     	event.getRegistry().register(new ItemBlock(ModBlocks.CLAYWORKTABLE).setRegistryName(ModBlocks.CLAYWORKTABLE.getRegistryName()));
+    	event.getRegistry().register(new ItemBlock(ModBlocks.CLAYBENDINGMACHINE).setRegistryName(ModBlocks.CLAYBENDINGMACHINE.getRegistryName()));
+    	
         //register tools
     	event.getRegistry().register(new ItemKnife());
         event.getRegistry().register(new ItemRollingPin());
