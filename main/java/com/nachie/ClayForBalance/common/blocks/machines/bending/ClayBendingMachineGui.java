@@ -6,8 +6,8 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.util.ResourceLocation;
 
 public class ClayBendingMachineGui extends GuiContainer {
-	public static final int WIDTH = 180;
-    public static final int HEIGHT = 152;
+	public static final int WIDTH = 252;
+    public static final int HEIGHT = 200;
 
     private static final ResourceLocation background = new ResourceLocation(ClayForBalance.MODID, "textures/gui/testcontainer.png");
 

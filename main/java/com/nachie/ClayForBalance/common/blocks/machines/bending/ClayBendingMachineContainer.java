@@ -12,8 +12,11 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
+import java.util.Random;
+
 public class ClayBendingMachineContainer extends Container {
 	private ClayBendingMachineTileEntity te;
+	private Random slotRNG = new Random();
 
     public ClayBendingMachineContainer(IInventory playerInventory, ClayBendingMachineTileEntity te) {
         this.te = te;
@@ -25,21 +28,29 @@ public class ClayBendingMachineContainer extends Container {
         addPlayerSlots(playerInventory);
     }
 
+    protected int getOCD() {
+        int ocd = slotRNG.nextInt(9);
+        if (ocd > 4){
+            ocd = ocd - 9;
+        }
+        return ocd;
+    }
+
     private void addPlayerSlots(IInventory playerInventory) {
         // Slots for the main inventory
         for (int row = 0; row < 3; ++row) {
             for (int col = 0; col < 9; ++col) {
-                int x = 9 + col * 18;
-                int y = row * 18 + 90;
-                this.addSlotToContainer(new Slot(playerInventory, col + row * 9 + 10, x, y));
+                int x = 9 + col * 26;
+                int y = row * 26 + 72;
+                this.addSlotToContainer(new Slot(playerInventory, col + row * 9 + 9, x + getOCD(), y + getOCD()));
             }
         }
 
         // Slots for the hotbar
         for (int row = 0; row < 9; ++row) {
-            int x = 9 + row * 18;
-            int y = 58 + 90;
-            this.addSlotToContainer(new Slot(playerInventory, row, x, y));
+            int x = 9 + row * 26;
+            int y = 98 + 72;
+            this.addSlotToContainer(new Slot(playerInventory, row, x + getOCD(), y + getOCD()));
         }
     }
 
@@ -49,9 +60,9 @@ public class ClayBendingMachineContainer extends Container {
         IItemHandler outputHandler = this.te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.DOWN);
 
         // Add our own slots
-        addSlotToContainer(new SlotItemHandler(inputHandler, 0, 45, 42));
-        addSlotToContainer(new SlotItemHandler(energyHandler, 1, 117, 42));
-        addSlotToContainer(new SlotItemHandler(outputHandler, 2, 81, 65));
+        addSlotToContainer(new SlotItemHandler(inputHandler, 0, 86, 24));
+        addSlotToContainer(new SlotItemHandler(energyHandler, 0, 118, 48));
+        addSlotToContainer(new SlotItemHandler(outputHandler, 0, 150, 24));
     }
 
 

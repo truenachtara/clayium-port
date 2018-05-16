@@ -59,6 +59,16 @@ public class ClayBendingMachine extends Block implements ITileEntityProvider {
     }
 
     @Override
+    public boolean isBlockNormalCube(IBlockState blockState) {
+        return false;
+    }
+
+    @Override
+    public boolean isOpaqueCube(IBlockState blockState) {
+        return false;
+    }
+
+    @Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side,
                 float hitX, float hitY, float hitZ) {
         // Only execute on the server

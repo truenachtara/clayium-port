@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench by Mato",
 	"textures": {
-		"0": "clayforbalance:blocks/machines",
-		"particle": "clayforbalance:blocks/machines"
+		"0": "clayforbalance:blocks/claybendingmachine",
+		"particle": "clayforbalance:blocks/claybendingmachine"
 	},
 	"elements": [
 		{
